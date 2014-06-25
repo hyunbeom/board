@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.sound.midi.MidiDevice.Info;
 
 import org.apache.log4j.Logger;
 import org.h4c.service.BoardService;
@@ -72,8 +71,20 @@ public class BoardController {
 		logger.info(vo.getTitle());
 		logger.info("===========================");
 		service.modify(vo);
+<<<<<<< HEAD
+		return "redirect:detail?bno="+vo.getBno();
+		
+	}
+	
+
+	@RequestMapping(value = "regist", method = RequestMethod.GET)
+	public void regist(BoardVO vo){		
+		logger.info("123");
+		
+=======
 		return "redirect:detail?bno=" + vo.getBno();
 
+>>>>>>> origin/master
 	}
 
 	@RequestMapping(value = "create", method = RequestMethod.GET)
