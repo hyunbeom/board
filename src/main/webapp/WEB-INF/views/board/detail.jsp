@@ -10,7 +10,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 </head>
 <body>
+<<<<<<< HEAD
 ${vo}Í
+=======
+${vo.getContent()}
+>>>>>>> FETCH_HEAD
 
 
 <form action="modify" method="GET">
