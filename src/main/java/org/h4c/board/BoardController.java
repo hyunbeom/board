@@ -43,6 +43,8 @@ public class BoardController {
 		logger.info("==========================");
 		
 		model.addAttribute("boardList",list);
+		model.addAttribute("criteria",cri);
+		model.addAttribute("totalCnt", list.get(0).getTotalCnt());
 		
 	}
 	
@@ -88,6 +90,7 @@ public class BoardController {
 	@RequestMapping(value = "delete", method = RequestMethod.POST)
 	public String delete(int bno){
 		service.remove(bno);
+		
 		return "redirect:list";
 	}
 		

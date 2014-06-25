@@ -28,6 +28,14 @@ public class BoardVO {
 	private int hits;
 	private int reseq;
 	private int depth;
+	private int totalCnt;
+	
+	public int getTotalCnt() {
+		return totalCnt;
+	}
+	public void setTotalCnt(int totalCnt) {
+		this.totalCnt = totalCnt;
+	}
 	public int getBno() {
 		return bno;
 	}
@@ -87,7 +95,7 @@ public class BoardVO {
 		return "BoardVO [bno=" + bno + ", gno=" + gno + ", writer=" + writer
 				+ ", title=" + title + ", content=" + content + ", regDate="
 				+ regDate + ", hits=" + hits + ", reseq=" + reseq + ", depth="
-				+ depth + "]";
+				+ depth + ", totalCnt=" + totalCnt + "]";
 	}
 	@Override
 	public int hashCode() {
