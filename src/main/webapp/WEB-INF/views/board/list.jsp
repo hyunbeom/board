@@ -59,7 +59,11 @@
 			<input type="checkbox" value="content" name="types"> 본문
 		    <input name="keyword" id="earch" size="10" maxlength="100">
 		    <input type="submit" value="검색" />
+		    
 			</form>
+		<form action = "create" method="get">
+		<input type="submit" value="등록" />
+		</form>
 	</div>
 </form>	
 

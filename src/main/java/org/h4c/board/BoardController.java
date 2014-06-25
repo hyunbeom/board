@@ -71,6 +71,25 @@ public class BoardController {
 		return "redirect:detail?bno="+vo.getBno();
 		
 	}
+	
+	@RequestMapping(value = "create", method = RequestMethod.GET)
+	public void create(Model model, BoardVO vo){
+		
+	}
+	
+	@RequestMapping(value = "createAction", method = RequestMethod.POST)
+	public String createAction(BoardVO vo){
+		logger.info("===============123============");
+		logger.info(vo);
+		logger.info("===============123============");
+		service.regist(vo);
+		return "redirect:list";
+	}
+	@RequestMapping(value = "delete", method = RequestMethod.POST)
+	public String delete(int bno){
+		service.remove(bno);
+		return "redirect:list";
+	}
 		
 }
 	
