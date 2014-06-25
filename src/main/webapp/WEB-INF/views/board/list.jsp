@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Bootstrap 101 Template</title>
+<title>Spring Board</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 부트스트랩 -->
 <script src="//code.jquery.com/jquery.js"></script>
