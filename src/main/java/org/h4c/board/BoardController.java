@@ -74,11 +74,32 @@ public class BoardController {
 		
 	}
 	
+<<<<<<< HEAD
 	@RequestMapping(value = "regist", method = RequestMethod.GET)
 	public void regist(BoardVO vo){		
 		logger.info("123");
 		
 	}
+=======
+	@RequestMapping(value = "create", method = RequestMethod.GET)
+	public void create(Model model, BoardVO vo){
+		
+	}
+	
+	@RequestMapping(value = "createAction", method = RequestMethod.POST)
+	public String createAction(BoardVO vo){
+		logger.info("===============123============");
+		logger.info(vo);
+		logger.info("===============123============");
+		service.regist(vo);
+		return "redirect:list";
+	}
+	@RequestMapping(value = "delete", method = RequestMethod.POST)
+	public String delete(int bno){
+		service.remove(bno);
+		return "redirect:list";
+	}
+>>>>>>> 66298488ae21f39f3fe0a29026adc3f62a5b8aed
 		
 }
 	

@@ -61,7 +61,13 @@
 		    <input type="submit" value="검색" />
 		    
 			</form>
+<<<<<<< HEAD
 		
+=======
+		<form action = "create" method="get">
+		<input type="submit" value="등록" />
+		</form>
+>>>>>>> 66298488ae21f39f3fe0a29026adc3f62a5b8aed
 	</div>
 </form>
 <button class = "regist">등록</button>		
