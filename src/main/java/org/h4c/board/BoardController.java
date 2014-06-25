@@ -44,6 +44,8 @@ public class BoardController {
 		logger.info("==========================");
 
 		model.addAttribute("boardList", list);
+		model.addAttribute("criteria", cri);
+		model.addAttribute("totalCnt", list.get(0).getTotalCnt());
 
 	}
 

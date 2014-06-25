@@ -9,15 +9,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Spring Board</title>
+<title>Bootstrap 101 Template</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 부트스트랩 -->
 <script src="//code.jquery.com/jquery.js"></script>
 
-
-<script src="/resources/js/bootstrap.min.js"></script>
-<link href="/resources/css/bootstrap.min.css" rel="stylesheet"
-	media="screen">
+<link rel="stylesheet"
+	href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+<script
+	src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="/board/resources/js/pageMaker.js"></script>
 </head>
 <!-- 부트스트랩  -->
 <body>
@@ -52,6 +57,7 @@
 
 
 			</div>
+			<input type = "hidden" class = 'page' name = "pageno" value="${criteria.getPageno()}" >
 			<input type="hidden" class="bno" name=bno>
 			<form action="/board/board/list" method="get">
 				<input type="checkbox" value="writer" name="types"> 작성자 <input
@@ -67,17 +73,30 @@
 			</form>
 
 		</div>
+		<div id='paging' align="center"></div>
 	</form>
 
 
 	<script>
+	var pageMaker = new PageMaker({
+		pageno :"${criteria.getPageno()}",
+		totalCnt : "${totalCnt}"
+	});
+	
+	pageMaker.makePage($('#paging'),function(page){
+		/* window.location.href = "list?pageno=" + page; */
+		$('.page').attr('value',page);
+		$('.list').attr('action','list').submit();
+	});
+	
 	function _goPage(bno){
 		console.log(bno);
 		$('.bno').attr('value',bno);
 		$('.list').attr('action','detail').submit();
-	}
+	};
 	
-	;
+	
+	
 	</script>
 
 </body>
