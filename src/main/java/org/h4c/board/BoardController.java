@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.sound.midi.MidiDevice.Info;
 
 import org.apache.log4j.Logger;
 import org.h4c.service.BoardService;
@@ -74,13 +73,13 @@ public class BoardController {
 		
 	}
 	
-<<<<<<< HEAD
+
 	@RequestMapping(value = "regist", method = RequestMethod.GET)
 	public void regist(BoardVO vo){		
 		logger.info("123");
 		
 	}
-=======
+
 	@RequestMapping(value = "create", method = RequestMethod.GET)
 	public void create(Model model, BoardVO vo){
 		
@@ -99,8 +98,7 @@ public class BoardController {
 		service.remove(bno);
 		return "redirect:list";
 	}
->>>>>>> 66298488ae21f39f3fe0a29026adc3f62a5b8aed
-		
+
 }
 	
 	

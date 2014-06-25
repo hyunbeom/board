@@ -21,56 +21,54 @@
 </head>
 <!-- 부트스트랩  -->
 <body>
-<form class="list">
-	<div class="boardwrap">
-		<div class="table-responsive">
-			<table class="table table-hover" width="100%" cellpadding="0"
-				cellspacing="0" border="0">
+	<form class="list">
+		<div class="boardwrap">
+			<div class="table-responsive">
+				<table class="table table-hover" width="100%" cellpadding="0"
+					cellspacing="0" border="0">
 
-				<tr height="1" bgcolor="#D2D2D2" style="text-align: center;">
-					<td width="10%">번호</td>
-					<td width="40%">제목</td>
-					<td width="10%">작성자</td>
-					<td width="10%">조회</td>
-					<td width="30%">시간</td>
-				</tr>
+					<tr height="1" bgcolor="#D2D2D2" style="text-align: center;">
+						<td width="10%">번호</td>
+						<td width="40%">제목</td>
+						<td width="10%">작성자</td>
+						<td width="10%">조회</td>
+						<td width="30%">시간</td>
+					</tr>
 
-			<c:forEach var ="list" items = "${boardList}">
-			
-			
-				<tr>
-					<td width="10%" align="center">${list.getBno()}</td>
-					<td width="40%" onclick="_goPage(${list.getBno()})">${list.getTitle()}</td>
-					<td width="15%">${list.getWriter()}</td>
-					<td width="10%">${list.getHits()}</td>
-					<td width="25%" align="center">${list.getRegDate()}</td>
-				</tr>
-			
-			
-			</c:forEach>
+					<c:forEach var="list" items="${boardList}">
+
+
+						<tr>
+							<td width="10%" align="center">${list.getBno()}</td>
+							<td width="40%" onclick="_goPage(${list.getBno()})">${list.getTitle()}</td>
+							<td width="15%">${list.getWriter()}</td>
+							<td width="10%">${list.getHits()}</td>
+							<td width="25%" align="center">${list.getRegDate()}</td>
+						</tr>
+
+
+					</c:forEach>
 				</table>
 
 
-		</div>
-		<input type="hidden" class="bno" name=bno>
-		<form action="/board/board/list" method="get">
-			<input type="checkbox" value="writer" name="types"> 작성자
-			<input type="checkbox" value="title" name="types" checked="checked">제목
-			<input type="checkbox" value="content" name="types"> 본문
-		    <input name="keyword" id="earch" size="10" maxlength="100">
-		    <input type="submit" value="검색" />
-		    
+			</div>
+			<input type="hidden" class="bno" name=bno>
+			<form action="/board/board/list" method="get">
+				<input type="checkbox" value="writer" name="types"> 작성자 <input
+					type="checkbox" value="title" name="types" checked="checked">제목
+				<input type="checkbox" value="content" name="types"> 본문 <input
+					name="keyword" id="earch" size="10" maxlength="100"> <input
+					type="submit" value="검색" />
+
 			</form>
-<<<<<<< HEAD
-		
-=======
-		<form action = "create" method="get">
-		<input type="submit" value="등록" />
-		</form>
->>>>>>> 66298488ae21f39f3fe0a29026adc3f62a5b8aed
-	</div>
-</form>
-<button class = "regist">등록</button>		
+
+			<form action="create" method="get">
+				<input type="submit" value="등록" />
+			</form>
+
+		</div>
+	</form>
+
 
 	<script>
 	function _goPage(bno){
@@ -79,10 +77,7 @@
 		$('.list').attr('action','detail').submit();
 	}
 	
-	$(".regist").click(function(){
-		console.log("123");
-		window.location.href = "regist";
-	});
+	;
 	</script>
 
 </body>

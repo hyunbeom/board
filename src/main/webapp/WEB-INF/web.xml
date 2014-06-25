@@ -24,8 +24,7 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 	
 	<filter>
 		<!-- http://blog.naver.com/PostView.nhn?blogId=dlaelel1&logNo=100138643494 -->
@@ -41,37 +40,11 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 		
-=======
 
->>>>>>> origin/master
-=======
-		
->>>>>>> 66298488ae21f39f3fe0a29026adc3f62a5b8aed
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-<<<<<<< HEAD
-<<<<<<< HEAD
-	
-	
 
-=======
-	<filter>
-=======
-<filter>
-		<!-- http://blog.naver.com/PostView.nhn?blogId=dlaelel1&logNo=100138643494 -->
->>>>>>> 66298488ae21f39f3fe0a29026adc3f62a5b8aed
-		<filter-name>encodingFilter</filter-name>
-		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
-		<init-param>
-			<param-name>encoding</param-name>
-			<param-value>UTF-8</param-value>
-		</init-param>
-	</filter>
-	<filter-mapping>
-		<filter-name>encodingFilter</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
->>>>>>> origin/master
+
 </web-app>
