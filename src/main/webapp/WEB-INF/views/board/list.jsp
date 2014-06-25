@@ -37,7 +37,7 @@
 
 			<c:forEach var ="list" items = "${boardList}">
 			
-			<form>
+			
 				<tr>
 					<td width="10%" align="center">${list.getBno()}</td>
 					<td width="40%" onclick="_goPage(${list.getBno()})">${list.getTitle()}</td>
@@ -45,10 +45,10 @@
 					<td width="10%">${list.getHits()}</td>
 					<td width="25%" align="center">${list.getRegDate()}</td>
 				</tr>
-			</form>
+			
 			
 			</c:forEach>
-				
+				</table>
 
 
 		</div>
@@ -59,9 +59,12 @@
 			<input type="checkbox" value="content" name="types"> 본문
 		    <input name="keyword" id="earch" size="10" maxlength="100">
 		    <input type="submit" value="검색" />
+		    
 			</form>
+		
 	</div>
-</form>	
+</form>
+<button class = "regist">등록</button>		
 
 	<script>
 	function _goPage(bno){
@@ -69,6 +72,11 @@
 		$('.bno').attr('value',bno);
 		$('.list').attr('action','detail').submit();
 	}
+	
+	$(".regist").click(function(){
+		console.log("123");
+		window.location.href = "regist";
+	});
 	</script>
 
 </body>
