@@ -33,52 +33,66 @@ public class BoardController {
 	@RequestMapping(value = "list", method = RequestMethod.GET)
 	public void list(Model model, WebCriteria cri) {
 		logger.info(cri);
+		
+		
 		if (cri.getPageno() == 0) {
 			cri.setPageno(1);
 		}
+		
 
 		List<BoardVO> list = new ArrayList<BoardVO>();
 		list = service.find(cri);
 		logger.info("==========================");
 		logger.info(list);
 		logger.info("==========================");
-<<<<<<< HEAD
+		
 		
 		model.addAttribute("boardList",list);
-		model.addAttribute("criteria",cri);
 		model.addAttribute("totalCnt", list.get(0).getTotalCnt());
+		logger.info(model.toString());
 		
-=======
 
-		model.addAttribute("boardList", list);
+	
 
->>>>>>> FETCH_HEAD
+
 	}
 
 	@RequestMapping(value = "detail", method = RequestMethod.GET)
-	public void detail(Model model, BoardVO vo) {
+	public void detail(Model model, BoardVO vo,WebCriteria cri) {
 
 		logger.info("==========================");
 
 		logger.info("==========================");
 
 		model.addAttribute("vo", service.get(vo.getBno()));
+		model.addAttribute("criteria",cri);
 	}
 
 	@RequestMapping(value = "modify", method = RequestMethod.GET)
-	public void modify(Model model, BoardVO vo) {
+	public void modify(Model model, BoardVO vo,WebCriteria cri) {
+		if (cri.getPageno() == 0) {
+			cri.setPageno(1);
+		}
+		
 		model.addAttribute("vo", service.get(vo.getBno()));
+		model.addAttribute("criteria",cri);
+		logger.info("===========================");
+		logger.info(cri);
+		logger.info("===========================");
+		logger.info("===========================");
 	}
 
 	@RequestMapping(value = "modifyAction", method = RequestMethod.POST)
-	public String modifyAction(BoardVO vo) {
-
+	public String modifyAction(Model model,BoardVO vo,WebCriteria cri) {
+		
 		logger.info("===========================");
 		logger.info(vo.getBno());
 		logger.info(vo.getTitle());
 		logger.info("===========================");
 		service.modify(vo);
-		return "redirect:detail?bno=" + vo.getBno();
+		model.addAttribute("nextPage","detail");
+		
+		return "board/result";
 
 	}
 

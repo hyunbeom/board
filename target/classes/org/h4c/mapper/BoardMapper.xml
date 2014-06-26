@@ -16,9 +16,9 @@
 
 	</select>
 
-	<update id="update" parameterType="org.h4c.vo.BoardVO">
-
-	</update>
+	<update id="update">
+	update tbl_board set content = #{content}, title = #{title} where bno = #{bno}
+</update>
 
 	<delete id="delete" parameterType="int">
 		delete from tbl_board where bno = #{bno}
