@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 <<<<<<< HEAD
     pageEncoding="UTF-8"%>
+=======
+<<<<<<< HEAD
+    pageEncoding="UTF-8"%>
 
     <%
 	request.setCharacterEncoding("UTF-8");
@@ -10,6 +13,7 @@
 =======
 	pageEncoding="UTF-8"%>
 >>>>>>> origin/master
+>>>>>>> FETCH_HEAD
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -21,6 +25,10 @@
 </head>
 <body>
 <<<<<<< HEAD
+${vo}
+${criteria}
+=======
+<<<<<<< HEAD
 
 ${vo}
 
@@ -28,22 +36,44 @@ ${vo.getContent()}
 
 =======
 >>>>>>> origin/master
+>>>>>>> FETCH_HEAD
 
 
-	${vo.getContent()}
 
 
+<form action="delete" method="POST">
+<input type = "hidden" value = "${vo.getBno()}" name = "bno">
+<input type="submit" value="삭제">
+</form>
 
-	<form action="modify" method="GET">
-		<input type="hidden" value="${vo.getBno()}" name="bno"> <input
-			type="submit" value="전송">
-	</form>
+<form class="goList">
+<input type="hidden" name = "bno" value = "${boardVO.bno}"> 
+	<input type="hidden" name = "keyword" value = "${webCriteria.keyword}">
+	<input type="hidden" name = "pageno" value = "${webCriteria.pageno}">
+	<div class="checkBox">
+	<input type="checkbox" value="writer" name="types" ${webCriteria.isChecked("writer","")}>
+	<input type="checkbox" value="title" name="types" ${webCriteria.isChecked("title","")}>
+	<input type="checkbox" value="content" name="types" ${webCriteria.isChecked("content","")}>
+	</div>
+	<button class="listBtn" >목록</button>
+	<button class="modifyBtn" >수정</button>
+</form>
 
-	<form action="delete" method="POST">
-		<input type="hidden" value="${vo.getBno()}" name="bno"> <input
-			type="submit" value="삭제">
+<script type="text/javascript">
+$(".checkBox").hide();
+var $goList = $('.goList');
+var $lilstBtn = $('.listBtn');
+
+var $modifyBtn = $('.modifyBtn');
+$lilstBtn.click(function(){
+	$goList.attr("action","list").submit();	
+});
+$modifyBtn.click(function(){
+	$goList.attr("action","modify").submit();	
+});
+
+</script>
 
 
-	</form>
 </body>
 </html>
