@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.sound.midi.MidiDevice.Info;
 
 import org.apache.log4j.Logger;
 import org.h4c.service.BoardService;
@@ -54,6 +53,12 @@ public class BoardController {
 
 	
 
+<<<<<<< HEAD
+=======
+		model.addAttribute("boardList", list);
+		model.addAttribute("criteria", cri);
+		model.addAttribute("totalCnt", list.get(0).getTotalCnt());
+>>>>>>> FETCH_HEAD
 
 	}
 
@@ -90,10 +95,26 @@ public class BoardController {
 		logger.info(vo.getTitle());
 		logger.info("===========================");
 		service.modify(vo);
+<<<<<<< HEAD
 		model.addAttribute("nextPage","detail");
 		
 		return "board/result";
+=======
+<<<<<<< HEAD
+		return "redirect:detail?bno="+vo.getBno();
+		
+	}
+	
 
+	@RequestMapping(value = "regist", method = RequestMethod.GET)
+	public void regist(BoardVO vo){		
+		logger.info("123");
+		
+=======
+		return "redirect:detail?bno=" + vo.getBno();
+>>>>>>> FETCH_HEAD
+
+>>>>>>> origin/master
 	}
 
 	@RequestMapping(value = "create", method = RequestMethod.GET)

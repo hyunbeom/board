@@ -14,8 +14,6 @@ import java.util.Date;
 //		  `depth` INT NOT NULL DEFAULT 0,
 //		  PRIMARY KEY (`bno`));
 
-
-
 public class BoardVO {
 
 	private int bno;
@@ -23,11 +21,13 @@ public class BoardVO {
 	private String writer;
 	private String title;
 	private String content;
-	
+	private int totalCnt;
+
 	private Date regDate;
 	private int hits;
 	private int reseq;
 	private int depth;
+<<<<<<< HEAD
 	private int totalCnt;
 	
 	public int getTotalCnt() {
@@ -36,60 +36,89 @@ public class BoardVO {
 	public void setTotalCnt(int totalCnt) {
 		this.totalCnt = totalCnt;
 	}
+=======
+
+>>>>>>> FETCH_HEAD
 	public int getBno() {
 		return bno;
 	}
+
 	public void setBno(int bno) {
 		this.bno = bno;
 	}
+
 	public int getGno() {
 		return gno;
 	}
+
 	public void setGno(int gno) {
 		this.gno = gno;
 	}
+
 	public String getWriter() {
 		return writer;
 	}
+
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
+
 	public String getTitle() {
 		return title;
 	}
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
 	public String getContent() {
 		return content;
 	}
+
 	public void setContent(String content) {
 		this.content = content;
 	}
+
 	public Date getRegDate() {
 		return regDate;
 	}
+
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
+
 	public int getHits() {
 		return hits;
 	}
+
 	public void setHits(int hits) {
 		this.hits = hits;
 	}
+
 	public int getReseq() {
 		return reseq;
 	}
+
 	public void setReseq(int reseq) {
 		this.reseq = reseq;
 	}
+
 	public int getDepth() {
 		return depth;
 	}
+
 	public void setDepth(int depth) {
 		this.depth = depth;
 	}
+
+	public int getTotalCnt() {
+		return totalCnt;
+	}
+
+	public void setTotalCnt(int totalCnt) {
+		this.totalCnt = totalCnt;
+	}
+
 	@Override
 	public String toString() {
 		return "BoardVO [bno=" + bno + ", gno=" + gno + ", writer=" + writer
@@ -97,6 +126,7 @@ public class BoardVO {
 				+ regDate + ", hits=" + hits + ", reseq=" + reseq + ", depth="
 				+ depth + ", totalCnt=" + totalCnt + "]";
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -112,6 +142,7 @@ public class BoardVO {
 		result = prime * result + ((writer == null) ? 0 : writer.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -153,6 +184,5 @@ public class BoardVO {
 			return false;
 		return true;
 	}
-	
-	
+
 }

@@ -12,7 +12,17 @@
 
 	<select id="read" resultType="org.h4c.vo.BoardVO" parameterType="int">
 
+<<<<<<< HEAD
 		select bno,gno,writer,title,content, regDate, hits,(SELECT TABLE_ROWS FROM information_schema.tables WHERE TABLE_NAME = 'tbl_board') as totalCnt,reseq,depth from tbl_board where bno = #{bno}
+=======
+<<<<<<< HEAD
+		select bno,gno,writer,title,content, regDate, hits,(SELECT TABLE_ROWS FROM information_schema.tables WHERE TABLE_NAME = 'tbl_board') as totalCnt,reseq,depth from tbl_board where bno = #{bno}
+=======
+		select bno,gno,writer,title,content, regDate, hits,(SELECT TABLE_ROWS
+		FROM information_schema.tables WHERE TABLE_NAME = 'tbl_board') as
+		totalCnt,reseq,depth from tbl_board where bno = #{bno}
+>>>>>>> origin/master
+>>>>>>> FETCH_HEAD
 
 	</select>
 
@@ -21,12 +31,26 @@
 </update>
 
 	<delete id="delete" parameterType="int">
+<<<<<<< HEAD
 		delete from tbl_board where bno = #{bno}
+=======
+<<<<<<< HEAD
+		delete from tbl_board where bno = #{bno}
+=======
+		delete from tbl_board where
+		bno = #{bno}
+>>>>>>> origin/master
+>>>>>>> FETCH_HEAD
 	</delete>
 
 	<select id="getList" resultType="org.h4c.vo.BoardVO"
 		parameterType="org.h4c.vo.WebCriteria">
 
+<<<<<<< HEAD
+		select bno,gno,writer,title,content, regDate, hits,(select count(bno) from tbl_board 
+			<if test="types != null">
+=======
+<<<<<<< HEAD
 		select bno,gno,writer,title,content, regDate, hits,(select count(bno) from tbl_board 
 			<if test="types != null">
 			<where>
@@ -49,6 +73,38 @@
 		</if>
 		
 		) as totalCnt from tbl_board
+=======
+		select bno,gno,writer,title,content, regDate, hits,(select count(bno)
+		from tbl_board
+>>>>>>> origin/master
+		<if test="types != null">
+>>>>>>> FETCH_HEAD
+			<where>
+				<foreach item="type" index="idx" collection="types"
+					separator="OR">
+					<if test='type.equals("title")'>
+					
+						title like '%' #{keyword} '%'
+					</if>
+					<if test='type.equals("content")'>
+					
+						content like '%' #{keyword} '%'
+					</if>
+					<if test='type.equals("writer")'>
+					
+						writer like '%' #{keyword} '%'
+					</if>
+				</foreach>
+			</where>
+		</if>
+<<<<<<< HEAD
+		
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> FETCH_HEAD
+		) as totalCnt from tbl_board
 		<if test="types != null">
 			<where>
 				<foreach item="type" index="idx" collection="types"
@@ -68,11 +124,16 @@
 				</foreach>
 			</where>
 		</if>
+>>>>>>> origin/master
 		order by gno desc, reseq asc
 		Limit #{start}, #{PER_PAGE}
 	</select>
 
 	<update id="updateHits" parameterType="int">
+<<<<<<< HEAD
+		update tbl_board set hits = hits + 1 where bno = #{bno}
+=======
+<<<<<<< HEAD
 		update tbl_board set hits = hits + 1 where bno = #{bno}
 	</update>
 
@@ -85,6 +146,26 @@
 		values (#{gno},#{title},#{content},#{writer},#{reseq},#{depth})
 	</insert>
 	
+=======
+		update tbl_board set hits
+		= hits + 1 where bno = #{bno}
+>>>>>>> FETCH_HEAD
+	</update>
+
+	<update  id="updateReseq" parameterType="org.h4c.vo.BoardVO">
+		update TBL_BOARD set reseq=reseq+1 where gno=#{gno} and reseq >= #{reseq};
+	</update>
+	
+	<insert id="createReply" parameterType="org.h4c.vo.BoardVO">
+		insert into tbl_board (gno,title,content, writer,reseq,depth)
+		values (#{gno},#{title},#{content},#{writer},#{reseq},#{depth})
+	</insert>
+<<<<<<< HEAD
+	
+=======
+
+>>>>>>> origin/master
+>>>>>>> FETCH_HEAD
 
 
 </mapper>
